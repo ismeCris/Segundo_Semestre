@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Exercício 5: apresentar os caracteres de uma string e suas posições.</title>
+  <title>Exercício 5.2: apresentar os caracteres de uma string e suas posições, lendo uma frase do teclado.</title>
 </head>
 <body>
   <script>
-    var frase = "Olá, tudo bem?";
+    var frase = window.prompt("Digite uma frase: ");
     document.write(frase + "<br>");
     var tamanho = frase.length;
     for (var i = 0; i < tamanho; i++) {
