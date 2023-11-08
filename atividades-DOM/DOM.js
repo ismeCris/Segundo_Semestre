@@ -39,3 +39,6 @@ function colocarEmNegrito() {
         }
     }
 }
+
+
+/*exer 02 */
