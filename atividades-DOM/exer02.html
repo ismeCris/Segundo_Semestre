@@ -7,16 +7,18 @@
 </head>
 <body>
     <h1>calculdarora de peso ideal</h1>
-    <label for="altura">altura (em centímetros);</label>
+    <label for="altura">altura (em centímetros)</label>
     <input type="number" id="altura" placeholder="informe a altura">
 
     <label for="sexo">sexo:</label>
     <select id="sexo">
+        <option value="">selecione uma opção</option>
         <option value="masculino">Masculino</option>
         <option value="feminino">Feminino</option>
     </select>
 
     <button onclick = "calcularPesoIdeal()">  Calcular Peso Ideal</button>
-    <p id="resuldado"></p>
+    <p id="resultado"></p>
 </body>
+<script src="DOM.js"></script>
 </html>

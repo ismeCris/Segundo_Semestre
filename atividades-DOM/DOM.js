@@ -42,3 +42,41 @@ function colocarEmNegrito() {
 
 
 /*exer 02 */
+
+function calcularPesoIdeal(){
+
+    var alturaIput = document.getElementById('altura');
+    var sexoSelect = document.getElementById('sexo');
+    var resultadoParagraph = document.getElementById('resultado');
+
+    var altura = parseFloat(alturaIput.value);
+    var sexo = sexoSelect.value;
+    var pesoIdeal;
+
+    if(sexo === 'masculino'){
+        pesoIdeal = (72.7 * altura - 58).toFixed(2);
+    }else if(sexo ==='feminino'){
+        pesoIdeal = (62.1 * altura - 44.7).toFixed(2);
+    }else{
+        resultadoParagraph.textContent = 'selecione um sexo válido.';
+        return;
+    }
+
+    resultadoParagraph.textContent = `seu peso ideal é aproximadamente ${pesoIdeal} kg.`
+};
+
+/*exer 03*/
+
+function trocaCor(){
+    let listaElementos = document.querySelectorAll('li');
+
+    for(let elemento of listaElementos){
+        if(elemento.classList == "azul"){
+        elemento.classList.remove("azul");
+        elemento.classList.add("vermelho");
+    }else {
+        elemento.classList.remove("vermelho");
+        elemento.classList.add("azul");
+    }
+    };
+};
