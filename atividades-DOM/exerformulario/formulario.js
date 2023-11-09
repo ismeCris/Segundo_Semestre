@@ -1,17 +1,15 @@
-var cadastro = document.getElementById('cadastro-form');
-
-cadastro.addEventListener('submit',function(event){
-    
+document.getElementById('cadastroForm').addEventListener('submit', function(event){
     event.preventDefault();
 
-    var nome = document.getElementById('nome').Value;
-    var telefone = document.getElementById('telefone').Value;
-    var rg = document.getElementById('rg').Value;
-    var cpf = document.getElementById('cpf').Value;
-    var endereço = document.getElementById('edereço').Value;
+    var nome = document.getElementById('nome').value;
+    var telefone = document.getElementById('telefone').value;
+    var rg = document.getElementById('rg').value;
+    var cpf = document.getElementById('cpf').value;
+    var endereco = document.getElementById('endereco').value;
 
-
-    var mensagemSucesso = document.createElement('p');
-    mensagemSucesso.textContent = 'O cadastro foi efetuado com sucesso!';
-    cadastro.appendChild(mensagemSucesso);
+    if(nome && telefone && rg && cpf && endereco){
+        document.getElementById('resultado').innerHTML = "Cadastro realizado com sucesso!";
+    }else{
+        document.getElementById('resultado').innerHTML = "Por favor, preencha todos os campos";
+    }
 });
