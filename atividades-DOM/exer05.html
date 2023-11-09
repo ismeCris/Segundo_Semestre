@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de triângulo</title>
+</head>
+<body>
+    <h1>Verificador de triângulo</h1>
+    <div>
+        <label for="ladoA">Lado A:</label>
+        <input type="text" id="ladoA" name="ladoA" pattern="[0-9]+" required>
+    </div>
+    <div>
+        <label for="ladoB">Lado B:</label>
+        <input type="text" id="ladoB" name="ladoB" pattern="[0-9]+" required>
+    </div>
+    <div>
+        <label for="ladoC">Lado C:</label>
+        <input type="text" id="ladoC" name="ladoC" pattern="[0-9]+" required>
+    </div>
+    <button type="button" id="calcular">Calcular</button> 
+
+    <p id="resultado"></p>
+
+    <script>
+        document.getElementById('calcular').addEventListener("click", function(){
+
+            var ladoA = parseFloat(document.getElementById("ladoA").value);
+            var ladoB = parseFloat(document.getElementById("ladoB").value);
+            var ladoC = parseFloat(document.getElementById("ladoC").value);
+
+            if(isNaN(ladoA)|| isNaN(ladoB)|| isNaN(ladoC)){
+                document.getElementById("resultado").innerText = "Por favor,insira numeros variados";
+            }else{
+                if(ladoA === ladoB && ladoB === ladoC){
+                    document.getElementById("resultado").innerText = "Triângulo Equilátero";
+                }else if(ladoA === ladoB || ladoB === ladoC || ladoA === ladoC){
+                    document.getElementById("resultado").innerText = "Triângulo  Isósceles";
+                }else{
+                    document.getElementById("resultado").innerText = "Triângulo  Escaleno";
+                }
+            }
+            
+        });
+
+
+    </script>
+
+</body>
+</html>
