@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="">calculo funcionarios</label>
+
+    <br><br>
+    <label for="">func 1</label>
+    <input type=" text" id="nome1">
+    <input type=" text" id="vlrhora1"> 
+    <input type="text" id="hora1">
+    <br><br>
+    <label for="">func 2</label>
+    <input type=" text" id="nome2">
+    <input type=" text" id="vlrhora2"> 
+    <input type="text" id="hora2">
+    <br>
+
+    <button onclick="FuncObjetos()">objetos teste</button>
+</body>
+<script>
+    var nome1 = document.getElementById('nome1').value;/*coleta as informaçôes*/
+    var vleh1 = document.getElementById('vlrhora1').value;
+    var qth1 = document.getElementById('hora1').value;
+
+    var total1, total2;
+
+    console.log(nome1,vleh1,hora1);
+    total1 =vleh1 * qth1;
+    console.log('valor e:', total1);//mostrar objeto
+
+    //objeto
+    var pessoa = {nome1,vleh1,hora1};
+    console.log(pessoa);
+
+//novo objeto
+    var pessoas = {nome1,vleh1,hora1};
+    console.log(pessoa);
+
+</script>
+</html>
