@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Compras</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #b6d8c1;
+        }
+    </style>
+</head>
+<body>
+    <h2>Calculadora de Compras</h2>
+    <form id="formCalcul">
+        <label for="nomeProduto">Nome do produto</label>
+        <input type="text" id="nomeProduto" required>
+
+        <label for="valorProduto">Valor(R$)</label>
+        <input type="number" id="valorProduto" required>
+
+        <label for="quantidadeProduto">Quantidade</label>
+        <input type="number" id="quantidadeProduto" required>
+
+        <button type="button" onclick="calcularTotal()">Calcular</button>
+    </form>
+    
+    <h3>Resultado:</h3>
+    <p id="Resultado"></p>
+
+    <script>
+        function calcularTotal() {
+            var nomeProduto = document.getElementById('nomeProduto').value;
+            var valorProduto = parseFloat(document.getElementById('valorProduto').value);
+            var quantidadeProduto = parseInt(document.getElementById('quantidadeProduto').value);
+
+            // Cálculos
+            var totalReal = valorProduto * quantidadeProduto;
+            var taxaPeso = 0.070;
+            var totalPeso = valorProduto * quantidadeProduto * taxaPeso;
+            var taxaEuro = 0.19;
+            var totalEuro = valorProduto * quantidadeProduto * taxaEuro;
+
+            // Resultados
+            var resultado = `
+                Resumo da compra para o produto '${nomeProduto}':<br>
+                Total em Real: R$ ${totalReal.toFixed(2)}<br>
+                Total em Peso: ${totalPeso.toFixed(2)} pesos<br>
+                Total em Euro: € ${totalEuro.toFixed(2)}
+            `;
+
+            document.getElementById('Resultado').innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>

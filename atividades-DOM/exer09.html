@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+    <link rel="stylesheet" href="promise.css">
+</head>
+
+<body>
+    <form id="userForm">
+        <label for="username">Nome de Usuário</label>
+        <input type="text" id="username">
+        <label for="password">Senha</label>
+        <input type="text" id="password">
+
+        <button type="button" onclick="cadastrarUsuario()">Enviar</button>
+    </form>
+
+
+<script>
+    function autenticarUsuario(username, password) {
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            if (username === "usuario" && password === 'senha') {
+                resolve('Autenticação bem-sucedida')
+            } else {
+                reject('Credenciais inválidas. Tente novamente')
+            }
+        })
+    })
+
+}
+
+function cadastrarUsuario() {
+    let username = document.getElementById('username').value
+    let password = document.getElementById('password').value
+
+    autenticarUsuario(username, password)
+        .then((message) => {
+            alert(message);
+        })
+        .catch((error) => {
+            alert(error);
+        })
+}
+</script>
+</body>
+
+</html>
