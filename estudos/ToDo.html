@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            min-height: 100vh;
+            background-color: darkslategray;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .todo-web {
+        width: 100%;
+        max-width: 540px;
+        background-color: rgb(192, 235, 195);
+        margin: -17% auto 20px; /* Adjust the top margin (10px) */
+        padding: 40px 30px 70px;
+        border-radius: 10px;
+        position: relative;
+    }
+
+
+        h2 {
+            color: #000000;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            color: rgb(0, 0, 0);
+            flex: 1;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            padding: 10px 19%;
+            font-weight: 14px;
+        }
+
+        .task-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; 
+            margin-bottom: 10px; 
+        }
+
+        button {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    background: #9c7b78;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-right: 10px; 
+}
+
+.task-container button {
+    border: none;
+    outline: none;
+    padding: 4px 8px;
+    background: #032b05;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+.task-container li {
+   
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container" id="todoList">
+        <div class="todo-web"> 
+            <h2>To-Do List</h2>
+            <input type="text" id="tarefa" placeholder="Nova tarefa... ">
+            <button id="addTarefa" onclick="addTarefa()">add</button>
+            <div id="novalista"></div>
+        </div>
+    </div>
+
+    <script>
+        function addTarefa() {
+            var tarefa = document.getElementById("tarefa");
+            var text = tarefa.value.trim();
+
+            if (text === "") {
+                alert("Escreva uma tarefa!");
+                return;
+            }
+
+            var novalista = document.getElementById("novalista");
+            var novatarefa = document.createElement("div");
+            novatarefa.classList.add("task-container");
+            novatarefa.innerHTML = '<input type="checkbox">' + text + ' <button  onclick="removeTask(this)">X</button>';
+            novalista.appendChild(novatarefa);
+
+            tarefa.value = "";
+        }
+
+        function removeTask(button) {
+            var taskItem = button.parentNode;
+            taskItem.parentNode.removeChild(taskItem);
+        }
+    </script>
+</body>
+</html>
